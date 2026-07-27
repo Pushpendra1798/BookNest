@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { BookOpen, Heart, Plus } from "lucide-react";
+import { BookOpen, Compass, Heart, Plus } from "lucide-react";
 
 const Navbar = () => {
     const navLinkStyle = ({ isActive }) =>
@@ -43,6 +43,14 @@ const Navbar = () => {
                     <NavLink to="/favorites" className={navLinkStyle}>
                         <Heart size={17} />
                         Favorites
+                    </NavLink>
+
+                    <NavLink
+                        to="/discover"
+                        className={navLinkStyle}
+                    >
+                        <Compass size={17} />
+                        Discover
                     </NavLink>
 
                     <NavLink

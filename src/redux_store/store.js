@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import booksReducer from "../features/booksSlice";
 import filterReducer from "../features/filterSlice";
+import discoverReducer from "../features/discoverSlice";
 
 export const store = configureStore({
 
@@ -10,6 +11,8 @@ export const store = configureStore({
         books: booksReducer,
 
         filter: filterReducer,
+
+        discover: discoverReducer,
 
     },
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addBook } from "../features/booksSlice";
-
+import { useNavigate } from "react-router-dom";
 import {
     BookOpen,
     UserRound,
@@ -13,6 +13,7 @@ import {
 const AddBook = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         title: "",
@@ -58,6 +59,7 @@ const AddBook = () => {
             status: "Want to Read",
             favorite: false,
         });
+        navigate("/");
     };
 
 
