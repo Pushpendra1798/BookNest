@@ -14,3 +14,14 @@ export const store = configureStore({
     },
 
 });
+
+store.subscribe(() => {
+
+    const state = store.getState();
+
+    localStorage.setItem(
+        "books",
+        JSON.stringify(state.books.books)
+    );
+
+});
