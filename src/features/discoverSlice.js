@@ -1,28 +1,15 @@
-import {
-    createSlice,
-    createAsyncThunk
-} from "@reduxjs/toolkit";
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const API_KEY = import.meta.env.VITE_GOOGLE_BOOKS_API_KEY;
-
 
 export const fetchBooks = createAsyncThunk(
     "discover/fetchBooks",
-
     async (searchTerm, { rejectWithValue }) => {
         try {
-            console.log("API KEY:", API_KEY);
-            console.log("Searching:", searchTerm);
-
             const response = await fetch(
                 `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchTerm)}&maxResults=12&key=${API_KEY}`
             );
 
             const data = await response.json();
-
-            console.log("Status:", response.status);
-            console.log("Google Response:", data);
-
             if (!response.ok) {
                 return rejectWithValue(
                     data?.error?.message || "Failed to fetch books"
@@ -30,10 +17,9 @@ export const fetchBooks = createAsyncThunk(
             }
 
             return data.items || [];
-
-        } catch (error) {
+        } 
+            catch (error) {
             console.log("Fetch Error:", error);
-
             return rejectWithValue(
                 "Network error. Please try again."
             );
