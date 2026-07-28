@@ -117,13 +117,20 @@ const Navbar = () => {
                         Home
                     </NavLink>
 
-                    <NavLink
-                        to="/favorites"
-                        className={navLinkStyle}
-                    >
-                        <Heart size={17} />
-                        Favorites
-                    </NavLink>
+                        <NavLink
+                            to="/favorites"
+                            className={navLinkStyle}
+                        >
+                            <div className="relative">
+                                <Heart size={17} />
+                                {favoriteCount > 0 && (
+                                    <span className="absolute -right-2.5 -top-2.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
+                                        {favoriteCount}
+                                    </span>
+                                )}
+                            </div>
+                            Favorites
+                        </NavLink>
 
                     <NavLink
                         to="/discover"
